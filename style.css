@@ -1,0 +1,306 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu&family=Work+Sans&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: antiquewhite;
+}
+
+nav {
+  font-family: "Ubuntu", sans-serif;
+  position: sticky;
+  top: 0;
+}
+
+nav ul {
+  display: flex;
+  list-style-type: none;
+  height: 65px;
+  background-color: black;
+  color: white;
+  align-items: center;
+}
+
+nav ul li {
+  padding: 0 12px;
+}
+
+.musifyDesc {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2.5em;
+}
+
+.nav-sections {
+  cursor: pointer;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  font-weight: bolder;
+  font-size: 1.3rem;
+}
+
+.brand img {
+  width: 44px;
+  padding: 0 8px;
+  border-radius: 50%;
+}
+
+.container {
+  min-height: 70vh;
+  font-family: "Ubuntu", sans-serif;
+  background-color: black;
+  color: white;
+  display: flex;
+  width: 70%;
+  margin: 25px auto;
+  border-radius: 12px;
+  padding: 35px;
+  background-size: cover;
+}
+
+#myProgressBar {
+  width: 80vw;
+  cursor: pointer;
+  background-color: black;
+}
+
+#volumeBar {
+  cursor: pointer;
+  position: absolute;
+  right: 20vw;
+  top: 9vh;
+  width: 15vw;
+  background-color: black;
+}
+
+.songVolume {
+  position: absolute;
+  right: 36vw;
+  top: 10vh;
+  cursor: pointer;
+}
+
+.bottom {
+  position: sticky;
+  bottom: 0;
+  height: 130px;
+  background-color: black;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.icons {
+  margin-top: 15px;
+}
+
+.icons i {
+  cursor: pointer;
+}
+
+.songItem {
+  height: 40px;
+  display: flex;
+  width: 93%;
+  margin: 12px 0;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 10px;
+  border-radius: 40px;
+  background-color: rgb(13 106 23);
+}
+
+.songItem img {
+  height: 40px;
+  width: 40px;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.songBanner {
+  background-color: red;
+  width: 680px;
+  height: 400px;
+  background-image: url("bg.png");
+  background-size: cover;
+  border-radius: 10%;
+}
+
+.songList {
+  margin: 0 10px;
+}
+
+.songList h1 {
+  text-align: left;
+}
+
+.timestamp i {
+  cursor: pointer;
+}
+
+.songItemContainer {
+  margin-top: 10px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 82vh;
+}
+
+.songInfo {
+  position: absolute;
+  left: 10vw;
+  font-family: "Work Sans", sans-serif;
+}
+
+.songInfo img {
+  opacity: 0;
+  transition: opacity 0.5s ease-in;
+}
+
+.songDuration {
+  width: 40px;
+  position: absolute;
+  right: 10vw;
+  font-family: "Work Sans", sans-serif;
+}
+
+#gif {
+  width: 50px;
+}
+
+#songDurationDisplay {
+  position: absolute;
+  right: 2vw;
+  display: flex;
+}
+
+input[type=range] {
+  height: 27px;
+  -webkit-appearance: none;
+  margin: 10px 0;
+  width: 100%;
+}
+
+input[type=range]:focus {
+  outline: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 7px;
+  cursor: pointer;
+  box-shadow: 0px 0px 0px #000000;
+  background: #FFFFFF;
+  border-radius: 10px;
+  border: 1px solid #000000;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  box-shadow: 0px 0px 0px #000000;
+  border: 1px solid #000000;
+  height: 20px;
+  width: 18px;
+  border-radius: 20px;
+  background: #A1D0FF;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -7.5px;
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #FFFFFF;
+}
+
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 7px;
+  cursor: pointer;
+  box-shadow: 0px 0px 0px #000000;
+  background: #FFFFFF;
+  border-radius: 10px;
+  border: 1px solid #000000;
+}
+
+input[type=range]::-moz-range-thumb {
+  box-shadow: 0px 0px 0px #000000;
+  border: 1px solid #000000;
+  height: 20px;
+  width: 18px;
+  border-radius: 20px;
+  background: #A1D0FF;
+  cursor: pointer;
+}
+
+input[type=range]::-ms-track {
+  width: 100%;
+  height: 7px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+
+input[type=range]::-ms-fill-lower {
+  background: #FFFFFF;
+  border: 1px solid #000000;
+  border-radius: 20px;
+  box-shadow: 0px 0px 0px #000000;
+}
+
+input[type=range]::-ms-fill-upper {
+  background: #FFFFFF;
+  border: 1px solid #000000;
+  border-radius: 20px;
+  box-shadow: 0px 0px 0px #000000;
+}
+
+input[type=range]::-ms-thumb {
+  margin-top: 1px;
+  box-shadow: 0px 0px 0px #000000;
+  border: 1px solid #000000;
+  height: 20px;
+  width: 18px;
+  border-radius: 20px;
+  background: #A1D0FF;
+  cursor: pointer;
+}
+
+input[type=range]:focus::-ms-fill-lower {
+  background: #FFFFFF;
+}
+
+input[type=range]:focus::-ms-fill-upper {
+  background: #FFFFFF;
+}
+
+.lyrics {
+  width: 44vw;
+  word-break: break-all;
+  height: 40vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  text-align: center;
+  margin-top: 15px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.2em;
+}
+
+#repeatIcon {
+  position: absolute;
+  left: 32vw;
+  top: 90px;
+  cursor: pointer;
+}
+
+#repeatText {
+  font-family: "Work Sans", sans-serif;
+  font-size: medium;
+}
