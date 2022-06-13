@@ -127,6 +127,7 @@ masterPlay.addEventListener("click", () => {
     selectedIcon.classList.add('fa-pause-circle');
     gif.style.opacity = 1;
     getLyrics();
+    changeBanner();
   } else {
     audioElement.pause();
     masterPlay.classList.remove("fa-pause-circle");
@@ -167,17 +168,17 @@ audioElement.addEventListener("timeupdate", () => {
 
   } else if (audioElement.currentTime == audioElement.duration &&
     document.getElementById('repeatText').innerText == 'Shuffle') {
-      songIndex = Math.floor(Math.random() * 15);
-      audioElement.src = `songs/${songIndex + 1}.mp3`;
-      audioElement.currentTime = 0;
-      audioElement.play();
-      makeAllPlays();
-      let selectedIcon = document.getElementById(songIndex);
-      selectedIcon.classList.remove('fa-play-circle');
-      selectedIcon.classList.add('fa-pause-circle');
-      masterSongName.innerText = songs[songIndex].songName + " - " + songs[songIndex].artist;
-      changeBanner();
-      getLyrics();
+    songIndex = Math.floor(Math.random() * 15);
+    audioElement.src = `songs/${songIndex + 1}.mp3`;
+    audioElement.currentTime = 0;
+    audioElement.play();
+    makeAllPlays();
+    let selectedIcon = document.getElementById(songIndex);
+    selectedIcon.classList.remove('fa-play-circle');
+    selectedIcon.classList.add('fa-pause-circle');
+    masterSongName.innerText = songs[songIndex].songName + " - " + songs[songIndex].artist;
+    changeBanner();
+    getLyrics();
   }
   else if (audioElement.currentTime == audioElement.duration && songIndex == 15) {
     songIndex = 0;
@@ -210,7 +211,7 @@ audioElement.addEventListener("timeupdate", () => {
     selectedIcon.classList.add('fa-pause-circle');
     changeBanner();
     getLyrics();
-  } 
+  }
 });
 
 // Update seek bar
@@ -328,13 +329,27 @@ Array.from(document.getElementsByClassName("songItemPlay")).forEach(
 
 // Next song button
 document.getElementById("next").addEventListener("click", () => {
+  if (document.getElementById('repeatText').innerText == 'Shuffle') {
+    songIndex = Math.floor(Math.random() * 15);
+    audioElement.src = `songs/${songIndex + 1}.mp3`;
+    audioElement.currentTime = 0;
+    audioElement.play();
+    makeAllPlays();
+    let selectedIcon = document.getElementById(songIndex);
+    selectedIcon.classList.remove('fa-play-circle');
+    selectedIcon.classList.add('fa-pause-circle');
+    masterSongName.innerText = songs[songIndex].songName + " - " + songs[songIndex].artist;
+    changeBanner();
+    getLyrics();
+  }
+
   if (songIndex >= 15) {
     songIndex = 0;
   } else {
     songIndex += 1;
   }
   audioElement.src = `songs/${songIndex + 1}.mp3`;
-  masterSongName.innerText = songs[songIndex].songName;
+  masterSongName.innerText = songs[songIndex].songName + " - " + songs[songIndex].artist;
   audioElement.currentTime = 0;
   audioElement.play();
   makeAllPlays();
@@ -354,7 +369,7 @@ document.getElementById("previous").addEventListener("click", () => {
   } else {
     songIndex -= 1;
   }
-  masterSongName.innerText = songs[songIndex].songName;
+  masterSongName.innerText = songs[songIndex].songName + " - " + songs[songIndex].artist;
   audioElement.src = `songs/${songIndex + 1}.mp3`;
   audioElement.currentTime = 0;
   audioElement.play();
@@ -425,7 +440,7 @@ document.getElementById('repeatIcon').addEventListener('click', () => {
   if (document.getElementById('repeatText').innerText === "Repeat All") {
     document.getElementById('repeatText').innerText = "Repeat One";
   }
-  else if(document.getElementById('repeatText').innerText === "Repeat One") {
+  else if (document.getElementById('repeatText').innerText === "Repeat One") {
     document.getElementById('repeatText').innerText = "Shuffle";
   }
   else {
@@ -433,14 +448,14 @@ document.getElementById('repeatIcon').addEventListener('click', () => {
   }
 });
 
-function songItemBg () {
+function songItemBg() {
   console.log('sontitembg works');
-  if(document.getElementById('song'+(songIndex+1)).style.backgroundColor != 'blue') {
-  document.getElementById('song'+(songIndex+1)).style.backgroundColor = 'blue';
+  if (document.getElementById('song' + (songIndex + 1)).style.backgroundColor != 'blue') {
+    document.getElementById('song' + (songIndex + 1)).style.backgroundColor = 'blue';
   }
 
   audioElement.addEventListener('ended', () => {
     console.log('rgb works');
-    document.getElementById('song'+(songIndex+1)).style.backgroundColor = 'rgb(' + 13 + ',' + 106 + ',' + 23 + ')';
+    document.getElementById('song' + (songIndex + 1)).style.backgroundColor = 'rgb(' + 13 + ',' + 106 + ',' + 23 + ')';
   })
 }
